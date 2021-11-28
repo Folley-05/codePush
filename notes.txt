@@ -1,0 +1,2 @@
+commande pour deployer avec codepush :
+    appcenter codepush release-react -a Folley05/lower -d Production

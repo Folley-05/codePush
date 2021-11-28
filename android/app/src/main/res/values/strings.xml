@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">lowerversion</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">KHCv0JLJ0nwQ4D_1rwVWrWnJFa0rUB7PSTNy4</string>
+</resources>
