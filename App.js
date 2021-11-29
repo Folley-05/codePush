@@ -1,24 +1,19 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import codePush from 'react-native-code-push'
+import AppRoot from './src/AppRoot.js'
 
 const App = () => {
   return (
     <View style={styles.app}>
-      <Text style={styles.text}>Super App Root</Text>
+      <AppRoot />
     </View>
   )
 }
 
 const styles=StyleSheet.create({
   app: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 30,
-    fontWeight: 'bold',
+    flex: 1
   }
 })
 

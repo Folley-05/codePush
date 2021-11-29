@@ -1,6 +1,9 @@
 package com.lowerversion;
 
 import com.facebook.react.ReactActivity;
+// added import
+import android.os.Bundle;
+// end added import
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +15,10 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "lowerversion";
   }
+  // added lines
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
+  // end added lines
 }
