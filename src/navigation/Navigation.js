@@ -1,17 +1,12 @@
 import React from 'react'
-import { View, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-const { Navigator, Screen }=createNativeStackNavigator()
+import Home from '../screens/home/Home'
+import NativeElements from '../screens/nativeElements/NativeElements'
+import Kitten from '../screens/kitten/Kitten'
 
-const Ecran=()=>{
-    return (
-        <View>
-            <Text>it's work fine !!! :)</Text>
-        </View>
-    )
-}
+const { Navigator, Screen }=createNativeStackNavigator()
 
 const Navigation = () => {
     return (
@@ -24,7 +19,9 @@ const Navigation = () => {
                     }
                 }
             >
-                <Screen name="home" component={Ecran} />
+                <Screen name="home" component={Home} />
+                <Screen name="elements" component={NativeElements} />
+                <Screen name="kitten" component={Kitten} />
             </Navigator>
         </NavigationContainer>
     )

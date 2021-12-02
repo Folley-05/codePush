@@ -1,2 +1,15 @@
 commande pour deployer avec codepush :
     appcenter codepush release-react -a Folley05/lower -d Production
+
+ui kitten :
+    le bakground utilise color-basic-800
+    le bakground des element actif utilise color-primary-500
+    le texte utilise color-basic-100
+    le background des elements desactives utilise color-basic-transparent-300
+        qui est une couleur -500 avec un canal alpha pour la transparence
+    la couleur du texte des elements desactives utilise color-basic-transparent-600
+    faire attention aux proprietes text-basic-color, text-hint-color, "text-disabled-color
+        elles modifie la couleur du texte aussi
+    les couleur -basic sont utilise a la fois pour le background et le texte,
+        leur couleur transparente est une couleur -600
+    il y a 4 niveau de background

@@ -1,12 +1,12 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import Navigation from './navigation/Navigation'
 
 const AppRoot = () => {
     return (
-        <View style={styles.appRoot}>
+        <View style={styles.appRoot} >
             <Navigation />
-        </View>
+        </View >
     )
 }
 

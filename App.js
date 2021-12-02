@@ -1,13 +1,13 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { StyleSheet, SafeAreaView } from 'react-native'
 import codePush from 'react-native-code-push'
 import AppRoot from './src/AppRoot.js'
 
 const App = () => {
   return (
-    <View style={styles.app}>
-      <AppRoot />
-    </View>
+      <SafeAreaView style={styles.app}>
+        <AppRoot />
+      </SafeAreaView>
   )
 }
 
