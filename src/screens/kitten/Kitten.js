@@ -5,6 +5,7 @@ import { ApplicationProvider, IconRegistry, Text, Button, Layout,
     TopNavigation,TopNavigationAction, Divider,
     BottomNavigation, BottomNavigationTab } from '@ui-kitten/components'
 import { EvaIconsPack } from '@ui-kitten/eva-icons'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import {ThemeContext} from './theme-context'
 import themeColors from './colors.json'
@@ -15,6 +16,8 @@ const themes={
     light: {...eva.light, ...themeColors},
     dark: {...eva.dark, ...themeColors}
 }
+
+const { Navigator, Screen }=createBottomTabNavigator()
 
 const Kitten = ({ navigation }) => {
     const [theme, setTheme]=React.useState('light')
@@ -29,9 +32,43 @@ const Kitten = ({ navigation }) => {
         <>
             <TopNavigationAction icon={MenuIcon} />
             <TopNavigationAction icon={SunIcon} onPress={()=>toogleTheme()} />
-        </>)
+        </>
+    )
 
-        console.log(AppsIcon)
+    const Screen1=()=>(
+        <Layout style={styles.layout}>
+            <Text category="h2">App List</Text>
+            <Button>Click</Button>
+        </Layout>
+    )
+    const Screen2=()=>(
+        <Layout style={styles.layout}>
+            <Text category="h2">Game List</Text>
+            <Button >Back</Button>
+        </Layout>
+    )
+    const Screen3=()=>(
+        <Layout style={styles.layout}>
+            <Text category="h2">Favourites</Text>
+            <Button >Back</Button>
+        </Layout>
+    )
+
+    const BottonNav=({navigation, state})=>(
+        <>
+        <Divider style={styles.divider} />
+        <BottomNavigation
+            selectedIndex={state.index}
+            // onSelect={index=>setBottom(index)}
+            onSelect={index=>{navigation.navigate(state.routeNames[index])}}
+        >
+            <BottomNavigationTab title="APP" icon={AppsIcon} />
+            <BottomNavigationTab title="GAMES" icon={GamesIcon} />
+            <BottomNavigationTab title="FAVORIS" icon={StartIcon} />
+        </BottomNavigation>
+        </>
+    )
+
     return (
         <>
         <IconRegistry icons={[EvaIconsPack, FeatherIconsPack]} />
@@ -42,24 +79,14 @@ const Kitten = ({ navigation }) => {
                     subtitle={()=><Text category="h6" status="primary" >Welcome</Text>} alignment="center"
                     accessoryLeft={BackAction}
                     accessoryRight={LeftAction}
-                    appearance="control"
                     style={styles.topNav}
                 />
                 <Divider style={styles.divider} />
-                <Layout style={styles.layout}>
-                    
-                    <Text category="h2">Hello from</Text>
-                    <Button>Click</Button>
-                </Layout>
-                <Divider style={styles.divider} />
-                <BottomNavigation
-                    selectedIndex={botton}
-                    onSelect={index=>setBottom(index)}
-                >
-                    <BottomNavigationTab title="APP" icon={AppsIcon} />
-                    <BottomNavigationTab title="GAMES" icon={GamesIcon} />
-                    <BottomNavigationTab title="FAVORIS" icon={StartIcon} />
-                </BottomNavigation>
+                <Navigator tabBar={props=><BottonNav {...props} />} screenOptions={{ headerShown: false, }}>
+                    <Screen name="APP" component={Screen1} />
+                    <Screen name="GAMES" component={Screen2} />
+                    <Screen name="FAVORIS" component={Screen3} />
+                </Navigator>
             </ApplicationProvider>
         </ThemeContext.Provider>
         </>
@@ -69,6 +96,7 @@ const Kitten = ({ navigation }) => {
 const styles=StyleSheet.create({
     layout: {
         flex: 1,
+        alignItems: 'center',
     },
     topNav: {
         minHeight: 60
