@@ -1,6 +1,6 @@
 import React from 'react'
 import * as eva from '@eva-design/eva'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, StatusBar } from 'react-native'
 import { ApplicationProvider, IconRegistry, Text, Button, Layout,
     TopNavigation,TopNavigationAction, Divider,
     BottomNavigation, BottomNavigationTab } from '@ui-kitten/components'
@@ -71,6 +71,7 @@ const Kitten = ({ navigation }) => {
 
     return (
         <>
+        <StatusBar barStyle='ligth-content' backgroundColor="#FC5D28" animated={true} />
         <IconRegistry icons={[EvaIconsPack, FeatherIconsPack]} />
         <ThemeContext.Provider value={{theme, toogleTheme}}>
             <ApplicationProvider {...eva} theme={themes[theme]}>
